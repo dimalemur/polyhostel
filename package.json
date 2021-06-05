@@ -5,15 +5,16 @@
   "description": "",
   "author": "",
   "scripts": {
-    "serve": "vue-cli-service serve src/client/main.js",
-    "build": "vue-cli-service build src/client/main.js",
+    "serve": "vue-cli-service serve src/client/main.ts",
+    "build": "vue-cli-service build src/client/main.ts",
     "lint": "vue-cli-service lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.js",
   "dependencies": {
     "core-js": "^3.14.0",
-    "vue": "^3.0.11"
+    "vue": "^3.0.11",
+    "vue-router": "^4.0.8"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",
