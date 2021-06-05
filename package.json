@@ -6,8 +6,8 @@
   "author": "",
   "scripts": {
     "services": " concurrently \"npm run services:events\"  \"npm run services:hostel\" \"npm run services:sport\" \"npm run services:user\" \"npm run services:wash\"",
-    "serve": "vue-cli-service serve src/client/main.js",
-    "build": "vue-cli-service build src/client/main.js",
+    "serve": "vue-cli-service serve src/client/main.ts",
+    "build": "vue-cli-service build src/client/main.ts",
     "services:events": "nodemon src/services/events",
     "services:hostel": "nodemon src/services/hostel",
     "services:sport": "nodemon src/services/sport",
@@ -28,7 +28,8 @@
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.2",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.8"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",
