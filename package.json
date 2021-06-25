@@ -6,8 +6,8 @@
   "author": "",
   "scripts": {
     "services": " concurrently \"npm run services:events\"  \"npm run services:hostel\" \"npm run services:sport\" \"npm run services:user\" \"npm run services:wash\"",
-    "serve": "vue-cli-service serve src/client/main.js",
-    "build": "vue-cli-service build src/client/main.js",
+    "serve": "vue-cli-service serve src/client/main.ts",
+    "build": "vue-cli-service build src/client/main.ts",
     "services:events": "nodemon src/services/events",
     "services:hostel": "nodemon src/services/hostel",
     "services:sport": "nodemon src/services/sport",
@@ -28,17 +28,24 @@
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.2",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.8",
+    "vuex": "^4.0.1"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli": "^4.5.13",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-plugin-typescript": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/compiler-sfc": "^3.0.11",
+    "@vue/eslint-config-typescript": "^7.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0",
+    "eslint": "^7.28.0",
+    "eslint-plugin-vue": "^7.10.0",
+    "typescript": "~4.1.5",
     "sequelize-auto": "^0.8.3"
   },
   "eslintConfig": {
@@ -48,10 +55,11 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/typescript"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@typescript-eslint/parser"
     },
     "rules": {}
   },
