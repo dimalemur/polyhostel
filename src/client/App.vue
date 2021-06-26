@@ -1,14 +1,20 @@
 <template>
   <h1>
-    DIMA LEMUR
+    {{ title }}
   </h1>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import {computed, defineComponent} from 'vue';
+import {useStore} from "vuex";
 
 export default defineComponent({
   name: 'App',
+  setup() {
+    const store = useStore()
+    const title = computed(() => store.state.test.title)
+    return {title}
+  }
 });
 </script>
 

@@ -1,16 +1,16 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex'
+import {testStore} from "@/client/store/modules/test.module";
 
-export default createStore({
+export interface State {
+    count: number
+}
+
+
+export const store = createStore<State>({
     state: {
-
-    },
-    mutations: {
-
-    },
-    actions: {
-
+        count: 0
     },
     modules: {
-
+        test: testStore
     }
 })
