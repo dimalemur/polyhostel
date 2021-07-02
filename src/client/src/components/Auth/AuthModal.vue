@@ -10,7 +10,7 @@
       <div :class="$style.password">
         <label>
           <span :class="$style.label">Пароль*</span>
-          <input :class="$style.input" type="text">
+          <input :class="$style.input" type="password">
         </label>
       </div>
       <div :class="$style.rememberMe">
