@@ -6,7 +6,7 @@
         <h1 :class="$style.hostelNumber">Общежитие №6</h1>
       </div>
       <div :class="$style.hostelButtons">
-        <button :class="[$style.auth, $style.button]">
+        <button :class="[$style.auth, $style.button]" @click="openModal">
           <h2>Вход</h2>
         </button>
         <button :class="[$style.info, $style.button]">
@@ -15,18 +15,38 @@
       </div>
     </div>
   </div>
+  <teleport to="body" v-if="isOpenModal">
+    <AuthModal @close="closeModal" />
+  </teleport>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue"
+import {defineComponent, ref} from "vue"
+import AuthModal from "@/client/src/components/Auth/AuthModal.vue";
 export default defineComponent({
-  name: "Auth"
+  name: "Auth",
+  components: {AuthModal},
+  setup() {
+    const isOpenModal = ref<boolean>(false)
+
+    const openModal = () => {
+      isOpenModal.value = true
+    }
+
+    const closeModal = () => {
+      isOpenModal.value = false
+    }
+
+    return {
+      isOpenModal, openModal, closeModal
+    }
+  }
 })
 </script>
 
 <style module lang="scss">
   .container {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/auth/auth-background.jpg") no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../assets/auth/auth-background.jpg") no-repeat center center;
     background-size: cover;
     color: white;
     height: 100%;
