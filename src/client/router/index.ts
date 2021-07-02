@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
-import Auth from "@/client/src/components/Auth.vue"
+import Auth from "@/client/src/components/Auth/Auth.vue"
 
 const routes: Array<RouteRecordRaw> = [
     {
