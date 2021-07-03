@@ -1,23 +1,22 @@
 <template>
-  <h1>
-    {{ title }}
-  </h1>
+  <router-view />
 </template>
 
 <script lang="ts">
-import {computed, defineComponent} from 'vue';
-import {useStore} from "vuex";
+import {defineComponent} from 'vue';
 
 export default defineComponent({
   name: 'App',
-  setup() {
-    const store = useStore()
-    const title = computed(() => store.state.test.title)
-    return {title}
-  }
 });
 </script>
 
 <style>
+  @import "~reset-css";
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+  #app {
+    width: 100vw;
+    height: 100vh;
+    font-family: Montserrat, sans-serif;
+  }
 </style>
