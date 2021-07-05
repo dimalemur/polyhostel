@@ -7,10 +7,10 @@
       </div>
       <div :class="$style.hostelButtons">
         <button :class="[$style.auth, $style.button]" @click="openModal">
-          <p>Вход</p>
+          Вход
         </button>
         <button :class="[$style.info, $style.button]">
-          <p>Информация</p>
+          Информация
         </button>
       </div>
     </div>
