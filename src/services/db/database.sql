@@ -1,10 +1,6 @@
 ----------------------- БАЗА ДАННЫХ ОБЩЕЖИТИЙ -----------------------
 
-CREATE DATABASE "POLYHOSTEL_HOSTELS"
-    WITH
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    CONNECTION LIMIT = -1;
+CREATE DATABASE "POLYHOSTEL_HOSTELS";
 
 -- общежития
 CREATE TABLE hostel

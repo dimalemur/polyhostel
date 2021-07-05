@@ -2,9 +2,8 @@ require('dotenv').config() // переменные окружения
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser')
-
 const sequelize = require('./db')
-const models = require('./models/init-models')
+require('./models/init-models')
 const PORT = process.env.USER_PORT
 
 const app = express();
