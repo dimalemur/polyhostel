@@ -1,16 +1,16 @@
 <template>
   <div :class="$style.container">
-    <img :class="$style.logo" src="@/client/assets/auth/logo.png" alt="">
+    <img :class="$style.logo" src="@/client/assets/polylogo.png" alt="">
     <div :class="$style.hostel">
       <div :class="$style.hostelContainer">
         <h1 :class="$style.hostelNumber">Общежитие №6</h1>
       </div>
       <div :class="$style.hostelButtons">
         <button :class="[$style.auth, $style.button]" @click="openModal">
-          <h2>Вход</h2>
+          <p>Вход</p>
         </button>
         <button :class="[$style.info, $style.button]">
-          <h2>Информация</h2>
+          <p>Информация</p>
         </button>
       </div>
     </div>
