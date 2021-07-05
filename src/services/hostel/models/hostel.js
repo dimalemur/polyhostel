@@ -19,7 +19,6 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'hostel',
-    schema: 'public',
     timestamps: false,
     indexes: [
       {

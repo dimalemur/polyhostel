@@ -5,14 +5,10 @@
   "description": "",
   "author": "",
   "scripts": {
-    "services": " concurrently \"npm run services:events\"  \"npm run services:hostel\" \"npm run services:sport\" \"npm run services:user\" \"npm run services:wash\"",
+    "services:start": "docker-compose up --build -d",
+    "services:stop": "docker-compose down",
     "serve": "vue-cli-service serve src/client/main.ts",
     "build": "vue-cli-service build src/client/main.ts",
-    "services:events": "nodemon src/services/events",
-    "services:hostel": "nodemon src/services/hostel",
-    "services:sport": "nodemon src/services/sport",
-    "services:user": "nodemon src/services/user",
-    "services:wash": "nodemon src/services/wash",
     "lint": "vue-cli-service lint"
   },
   "main": "index.js",

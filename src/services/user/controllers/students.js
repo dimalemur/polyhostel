@@ -1,6 +1,6 @@
 const StudentServices = require('../services/students')
 const {asyncGetUserById} = require("../services/users");
-const {asyncGetRoomInHostelById} = require("../../hostel/services/roomsInHostel");
+const axios = require('axios');
 
 const getAllStudents = async (req, res) => {
     try {
@@ -56,9 +56,10 @@ const getStudentsByFullName = async (req, res) => {
 const addStudent = async (req, res) => {
     const {room_in_hostel_id, user_id, name, surname, patronymic} = req.body;
     try {
-        const roomInHostel = await asyncGetRoomInHostelById(room_in_hostel_id)
-        const user = await asyncGetUserById(user_id);
-        const student = await StudentServices.asyncAddStudent(room_in_hostel_id, user_id, name, surname, patronymic);
+        const roomInHostel = await axios.get(`http://hostel:3006/roominhostel?id=${room_in_hostel_id}`);
+        const roomInHostelId = roomInHostel.data?.room_in_hostel_id;
+        await asyncGetUserById(user_id);
+        const student = await StudentServices.asyncAddStudent(roomInHostelId,user_id, name, surname, patronymic);
         return res.json(student)
     } catch (e) {
         return res.status(400).send(String(e))

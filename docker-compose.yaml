@@ -1,0 +1,36 @@
+version: '3'
+
+volumes:
+  pg_project:
+
+services:
+  hostel:
+    build: ./src/services/hostel
+    restart: always
+    links:
+      - postgres
+    volumes:
+      - ./src/services/hostel:/usr/src/hostelservice/
+    ports:
+      - "3006:3006"
+  user:
+    build: ./src/services/user
+    restart: always
+    links:
+      - hostel
+      - postgres
+    volumes:
+      - ./src/services/user:/usr/src/userservice/
+    ports:
+      - "3008:3008"
+
+  postgres:
+    image: database
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_USER=postgres
+    volumes:
+      - pg_project:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
