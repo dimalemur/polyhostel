@@ -8,6 +8,15 @@ import Wash from "@/client/src/components/Wash/Wash.vue"
 
 const routes: Array<RouteRecordRaw> = [
     {
+        path: "/",
+        name: "Main",
+        component: News,
+        meta: {
+            layout: "main",
+            auth: true
+        }
+    },
+    {
         path: "/news",
         name: "News",
         component: News,
