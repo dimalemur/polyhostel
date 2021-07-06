@@ -1,12 +1,25 @@
 <template>
-  <router-view />
+  <component :is="layout + '-layout'" v-if="layout" />
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue';
+import {computed, defineComponent} from 'vue';
+import {useRoute} from "vue-router";
+import MainLayout from "@/client/src/layout/MainLayout.vue";
+import AuthLayout from "@/client/src/layout/AuthLayout.vue";
 
 export default defineComponent({
   name: 'App',
+  components: {AuthLayout, MainLayout},
+  setup() {
+    const route = useRoute()
+
+    const layout = computed(() => route.meta.layout)
+
+    return {
+      layout
+    }
+  }
 });
 </script>
 
