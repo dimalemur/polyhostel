@@ -14,15 +14,23 @@
         <router-link to="/wash" :class="$style.link">Стирка</router-link>
       </li>
     </ul>
-    <div :class="$style.separator"></div>
+    <Separator
+      :width="100"
+      unit-width="%"
+      :height="11"
+      unit-height="px"
+      color="#55B432"
+    />
   </nav>
 </template>
 
 <script>
 import {defineComponent} from "vue"
+import Separator from "@/client/src/components/Separator/Separator";
 
 export default defineComponent({
-  name: "Navbar"
+  name: "Navbar",
+  components: {Separator}
 })
 </script>
 
@@ -48,12 +56,6 @@ export default defineComponent({
     &:hover {
       text-decoration: none;
     }
-  }
-
-  .separator {
-    width: 100%;
-    height: 11px;
-    background-color: #55B432;
   }
 </style>
 
