@@ -39,7 +39,6 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'wash_rec',
-    schema: 'public',
     timestamps: false,
     indexes: [
       {

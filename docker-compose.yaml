@@ -4,29 +4,81 @@ volumes:
   pg_project:
 
 services:
+  proxy:
+    build: ./src/server
+    restart: always
+    networks:
+      - local
+    volumes:
+      - ./src/server:/usr/src/polyhosteproxy/
+    ports:
+      - "3000:3000"
+
+  fe:
+    build: .
+    restart: always
+    networks:
+      - local
+    volumes:
+      - .:/usr/src/fe/
+    ports:
+      - "8080:8080"
+
+  events:
+    build: ./src/services/events
+    restart: always
+    networks:
+      - local
+    volumes:
+      - ./src/services/events:/usr/src/events/
+    ports:
+      - "3005:3005"
+
   hostel:
     build: ./src/services/hostel
     restart: always
-    links:
-      - postgres
+    networks:
+      - local
     volumes:
       - ./src/services/hostel:/usr/src/hostelservice/
     ports:
       - "3006:3006"
+
+  sport:
+    build: ./src/services/sport
+    restart: always
+    networks:
+      - local
+    volumes:
+      - ./src/services/sport:/usr/src/sportservice/
+    ports:
+      - "3007:3007"
+
   user:
     build: ./src/services/user
     restart: always
-    links:
-      - hostel
-      - postgres
+    networks:
+      - local
     volumes:
       - ./src/services/user:/usr/src/userservice/
     ports:
       - "3008:3008"
 
+  wash:
+    build: ./src/services/wash
+    restart: always
+    networks:
+      - local
+    volumes:
+      - ./src/services/wash:/usr/src/washservice/
+    ports:
+      - "3009:3009"
+
   postgres:
     image: database
     restart: always
+    networks:
+      - local
     environment:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_USER=postgres
@@ -34,3 +86,7 @@ services:
       - pg_project:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+
+networks:
+  local:
+    driver: bridge

@@ -11,6 +11,8 @@ const app = express();
 app
     .use(cors())
     .use(express.json())
+    .get('/ping', (req, res) => res.json('pong'))
+
 
 const start = async () => {
     try {

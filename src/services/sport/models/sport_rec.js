@@ -30,7 +30,6 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'sport_rec',
-    schema: 'public',
     timestamps: false,
     indexes: [
       {
