@@ -9,10 +9,10 @@
         <p :class="$style.fio">Имя Фамилия</p>
         <button :class="$style.settings">Настройки</button>
       </div>
-      <div :class="$style.container">
-        <Navbar />
-        <router-view />
-      </div>
+    </div>
+    <div :class="$style.container">
+      <Navbar />
+      <router-view />
     </div>
   </div>
 </template>
@@ -29,7 +29,7 @@ export default defineComponent({
 
 <style lang="scss" module>
   .mainLayout {
-    height: 100%;
+    min-height: 100%;
     padding: 0 60px;
     background-color: #E5E5E5;
   }
@@ -56,7 +56,6 @@ export default defineComponent({
     justify-content: center;
     margin-top: 60px;
     width: 100%;
-    position: relative;
   }
 
   .profile {
@@ -84,7 +83,7 @@ export default defineComponent({
   }
 
   .container {
-    position: absolute;
+    margin: 0 auto;
     top: 110px;
     width: 1200px;
     height: 100%;
