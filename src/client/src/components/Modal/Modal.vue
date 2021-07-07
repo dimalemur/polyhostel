@@ -15,7 +15,10 @@ export default defineComponent({
   name: "Modal",
   emits: ["close"],
   props: {
-    title: String,
+    title: {
+      type: String,
+      required: false
+    },
     backgroundColor: {
       type: String,
       default: "black"
@@ -23,13 +26,18 @@ export default defineComponent({
     borderRadius: {
       type: Number,
       default: 5
+    },
+    textColor: {
+      type: String,
+      default: "white"
     }
   },
   setup(props) {
     const modalStyles: Ref<string> = computed(() => {
       const backgroundColor = props.backgroundColor
       const borderRadius = props.borderRadius
-      return `border-radius: ${borderRadius}px; background-color: ${backgroundColor}`
+      const textColor = props.textColor
+      return `border-radius: ${borderRadius}px; background-color: ${backgroundColor}; color: ${textColor}`
     })
 
     return {
