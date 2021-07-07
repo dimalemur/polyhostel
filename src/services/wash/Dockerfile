@@ -1,12 +1,12 @@
 FROM node
 
 RUN mkdir -p /usr/src/washservice/
-WORKDIR /usr/src/userservice/
+WORKDIR /usr/src/washservice/
 
-COPY . /usr/src/userservice/
+COPY . /usr/src/washservice/
 
-RUN npm install -g npm@7.0.5
-RUN npm i
+#RUN npm install -g npm@7.0.5
+#RUN npm i
 
 EXPOSE 3009
 

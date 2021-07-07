@@ -18,7 +18,6 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'washer',
-    schema: 'public',
     timestamps: false,
     indexes: [
       {

@@ -22,7 +22,6 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'events_rec',
-    schema: 'public',
     timestamps: false,
     indexes: [
       {
