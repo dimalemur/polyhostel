@@ -21,25 +21,16 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue"
+import {defineComponent} from "vue"
 import AuthModal from "@/client/src/components/Auth/AuthModal.vue";
+import {useModal} from "@/client/src/use/useModal";
+
 export default defineComponent({
   name: "Auth",
   components: {AuthModal},
   setup() {
-    const isOpenModal = ref<boolean>(false)
-
-    const openModal = () => {
-      isOpenModal.value = true
-    }
-
-    const closeModal = () => {
-      isOpenModal.value = false
-    }
-
-    return {
-      isOpenModal, openModal, closeModal
-    }
+    const {isOpenModal, closeModal, openModal} = useModal()
+    return {isOpenModal, closeModal, openModal}
   }
 })
 </script>
