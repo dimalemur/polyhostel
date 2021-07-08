@@ -9,13 +9,11 @@ const asyncGetRoomsInHostel = () => RoomsInHostel.findAll(
             {
                 model: Rooms,
                 as: 'room',
-                attributes: ['name'],
                 inner: true
             },
             {
                 model: Hostel,
                 as: 'hostel',
-                attributes: ['name'],
                 inner: true
             }
         ]
@@ -72,13 +70,11 @@ const asyncGetRoomInHostelById = (id) => RoomsInHostel.findByPk(
             {
                 model: Rooms,
                 as: 'room',
-                attributes: ['name'],
                 inner: true
             },
             {
                 model: Hostel,
                 as: 'hostel',
-                attributes: ['name'],
                 inner: true
             }
         ]

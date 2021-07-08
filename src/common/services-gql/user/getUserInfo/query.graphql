@@ -1,0 +1,21 @@
+query($Login: String ,$Password: String) {
+    getStudentByLp(login: $Login ,password: $Password) {
+        user_id
+        student_id
+        room_in_hostel {
+            room_in_hostel_id
+            room {
+                room_id
+                name
+            }
+            hostel {
+                hostel_id
+                name
+                type
+            }
+        }
+        name
+        surname
+        patronymic
+    }
+}
